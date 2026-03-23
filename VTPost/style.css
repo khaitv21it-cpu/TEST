@@ -16,7 +16,7 @@ body {
 }
 
 /* =========================================
-   2. HERO POSTER (PHẦN ĐẦU TRANG)
+   2. HERO POSTER
    ========================================= */
 .hero-poster {
     width: 100%;
@@ -30,16 +30,16 @@ body {
 }
 
 /* =========================================
-   3. CONTACT SECTION (PHẦN LIÊN HỆ)
+   3. CONTACT SECTION
    ========================================= */
 .contact-section {
     padding: 60px 0;
     background: #fff;
     color: #ee0000;
+    text-align: center;
 }
 
 .section-title {
-    text-align: center;
     font-size: 2.2rem;
     font-weight: 300;
     margin-bottom: 50px;
@@ -101,16 +101,14 @@ body {
     width: 100vw;
     height: 45px;
     background: #ff4d4d;
-    margin: 60px 0;
+    margin: 60px calc(-50vw + 50%);
     position: relative;
     left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    transform: translateX(-50%);
 }
 
 /* =========================================
-   4. PRICING TABLES (BẢNG GIÁ)
+   4. PRICING TABLES - FIX CHÍNH Ở ĐÂY
    ========================================= */
 .pricing-container {
     padding: 30px 0;
@@ -119,21 +117,22 @@ body {
 
 .pricing-wrapper {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px; /* Tăng để chứa nhiều pair hơn nếu cần */
     margin: 0 auto;
     padding: 0 15px;
-    overflow-x: auto;                  /* Cho phép scroll ngang trên mobile */
-    -webkit-overflow-scrolling: touch; /* Scroll mượt trên iOS */
-    scrollbar-width: thin;             /* Thanh scroll mỏng */
+    overflow-x: auto;                  /* SCROLL NGANG - KHÔNG MẤT KHUNG */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 #f1f1f1;
 }
 
 .pricing-row {
     display: flex;
-    justify-content: flex-start;       /* Bắt đầu từ trái để scroll tốt */
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 40px;
-    flex-wrap: nowrap;                 /* Giữ ngang để scroll thay vì wrap */
-    min-width: fit-content;            /* Đảm bảo không bị co lại */
+    gap: 50px;
+    flex-wrap: nowrap;                 /* Giữ ngang toàn bộ để scroll */
+    min-width: fit-content;
 }
 
 .country-title {
@@ -148,22 +147,22 @@ body {
 
 .table-pair {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: nowrap;
-    min-width: 380px;                  /* Tối thiểu cho 2 bảng + gap */
+    min-width: 420px;                  /* 2 bảng 180-200px + gap */
 }
 
 .data-table {
     border-collapse: collapse;
-    width: 180px;
-    min-width: 170px;
-    font-size: 11px;                   /* Tăng nhẹ cho dễ đọc */
+    width: 200px;                      /* Tăng width cho desktop đẹp */
+    min-width: 180px;
+    font-size: 12px;                   /* Tăng base font cho dễ đọc */
 }
 
 .data-table th,
 .data-table td {
-    border: 0.5px solid #ccc;
-    padding: 7px 4px;
+    border: 1px solid #ccc;            /* Tăng border dày hơn cho rõ */
+    padding: 8px 6px;
     text-align: center;
 }
 
@@ -178,73 +177,78 @@ body {
     font-weight: 600;
 }
 
-/* Divider vạch vàng */
+/* Divider vàng - chỉ hiện trên PC */
 .divider {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 100px;
+    padding: 80px 0;
 }
 
 .v-line {
     width: 1px;
-    height: 90px;
+    height: 120px;
     background: #d4af37;
     opacity: 0.7;
 }
 
 .star {
     color: #d4af37;
-    font-size: 18px;
-    margin: 12px 0;
+    font-size: 20px;
+    margin: 10px 0;
 }
 
 /* =========================================
-   5. RESPONSIVE (ĐIỆN THOẠI)
+   5. RESPONSIVE MOBILE - FIX HOÀN TOÀN
    ========================================= */
 @media (max-width: 768px) {
+    .pricing-wrapper {
+        padding: 0 10px;
+    }
+
     .pricing-row {
-        gap: 20px;
-        justify-content: flex-start;
+        gap: 25px;
     }
 
     .table-pair {
-        gap: 12px;
-        min-width: 340px;
+        gap: 15px;
+        min-width: 360px;              /* Vừa đủ cho mobile nhỏ */
     }
 
     .data-table {
-        font-size: 10px;
-        width: 160px;
-        min-width: 150px;
+        width: 170px;
+        min-width: 160px;
+        font-size: 10.5px;             /* Vẫn đọc được khi zoom */
     }
 
-    /* Ẩn divider trên mobile để tránh lệch */
     .divider {
-        display: none;
+        display: none;                 /* Ẩn divider tránh lệch */
     }
 
-    /* Thanh đỏ vẫn full width */
     .decoration-red-bar {
-        margin: 40px 0;
         height: 35px;
+        margin: 40px calc(-50vw + 50%);
     }
 
     .section-title {
         font-size: 1.8rem;
-        margin-bottom: 30px;
+    }
+
+    .quote {
+        font-size: 4rem;
+        height: 40px;
     }
 }
 
 @media (max-width: 400px) {
     .data-table {
-        font-size: 9.5px;
-        width: 150px;
-        min-width: 140px;
+        font-size: 10px;
+        width: 155px;
+        min-width: 145px;
     }
 
     .table-pair {
-        min-width: 320px;
+        min-width: 330px;
     }
 
     .pricing-row {
