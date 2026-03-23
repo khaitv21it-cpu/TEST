@@ -1,6 +1,6 @@
 /* =========================================
-   1. RESET & NỀN TẢNG
-   ========================================= */
+    1. RESET & NỀN TẢNG
+    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
@@ -8,18 +8,18 @@ body {
     color: #333; 
     background-color: #fff;
     width: 100%; 
-    overflow-x: hidden; /* Chống tràn ngang toàn trang */
+    overflow-x: hidden; 
 }
 
 /* =========================================
-   2. HERO POSTER
-   ========================================= */
+    2. HERO POSTER
+    ========================================= */
 .hero-poster { width: 100%; line-height: 0; }
 .full-poster { width: 100%; height: auto; display: block; }
 
 /* =========================================
-   3. CONTACT SECTION
-   ========================================= */
+    3. CONTACT SECTION
+    ========================================= */
 .contact-section { 
     padding: 60px 0; 
     background: #fff; 
@@ -36,7 +36,6 @@ body {
 
 .contact-grid { 
     display: grid; 
-    /* Tự động chuyển 1 cột trên mobile, 2 cột trên máy tính */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; 
     max-width: 900px; 
@@ -46,7 +45,6 @@ body {
 
 .contact-item { padding: 0 10px; }
 
-/* FIX: Căn giữa khối Mr. Linh */
 .centered { 
     grid-column: 1 / -1; 
     margin-top: 20px; 
@@ -59,7 +57,7 @@ body {
 .staff-box-inner {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Giữ dấu nháy bên trái nội dung */
+    align-items: flex-start; 
     width: fit-content;      
 }
 
@@ -79,7 +77,6 @@ body {
 .contact-item p { font-size: 1.1rem; margin-bottom: 5px; }
 .staff-name { font-weight: bold; margin-top: 5px; }
 
-/* Thanh đỏ tràn viền */
 .decoration-red-bar { 
     width: 100%; 
     height: 45px; 
@@ -88,8 +85,8 @@ body {
 }
 
 /* =========================================
-   4. PRICING TABLES - TỐI ƯU HIỂN THỊ MOBILE
-   ========================================= */
+    4. PRICING TABLES - ĐÃ CẬP NHẬT IN ĐẬM SỐ
+    ========================================= */
 .pricing-container { 
     padding: 30px 0; 
     background-color: #fff;
@@ -99,16 +96,16 @@ body {
     width: 100%;
     max-width: 1000px; 
     margin: 0 auto;
-    padding: 0 10px; /* Tạo khoảng cách nhỏ với mép màn hình */
+    padding: 0 10px; 
 }
 
 .pricing-row { 
     display: flex; 
-    justify-content: center; /* Căn giữa các khối quốc gia */
+    justify-content: center; 
     align-items: flex-start; 
     gap: 30px; 
     margin-bottom: 40px;
-    flex-wrap: wrap; /* Rất quan trọng: Để các nước tự xuống hàng trên điện thoại */
+    flex-wrap: wrap; 
 }
 
 .country-block {
@@ -131,35 +128,39 @@ body {
     display: flex; 
     gap: 10px; 
     justify-content: center;
-    flex-wrap: nowrap; /* Giữ 2 bảng con (trái-phải) nằm ngang */
+    flex-wrap: nowrap; 
 }
 
 .data-table { 
     border-collapse: collapse; 
-    width: 180px; /* Độ rộng tối ưu để hiện 2 bảng song song trên iPhone */
+    width: 180px; 
     font-size: 10px;
 }
 
-.data-table th, .data-table td { 
-    border: 1px solid #ccc; /* Tăng lên 1px để viền hiện rõ trên mobile */
+/* CHỖ SỬA: Tăng độ đậm và màu sắc cho các con số dữ liệu */
+.data-table td { 
+    border: 1px solid #ccc; 
     padding: 7px 4px; 
     text-align: center; 
+    font-weight: 600;       /* SỬA TẠI ĐÂY: Đưa font về mức đậm 600 */
+    color: #000;           /* Chuyển về màu đen tuyền để tăng tương phản */
 }
 
 .data-table thead th { 
     background: #dbdbdb; 
     color: #ee0000; 
-    font-weight: 700;
+    font-weight: 800;      /* Header đậm hơn nữa để phân biệt */
 }
 
 .highlight-red td:first-child { 
     color: #ee0000 !important; 
-    font-weight: 600; 
+    font-weight: 800;      /* Hàng giá sỉ đỏ in đậm tối đa */
 }
 
-/* Media Query cho điện thoại nhỏ (iPhone SE/5/6) */
+/* Media Query cho điện thoại nhỏ */
 @media screen and (max-width: 400px) {
-    .data-table { width: 45vw; font-size: 9px; } /* Co giãn bảng theo màn hình */
+    .data-table { width: 45vw; font-size: 9.5px; } 
+    .data-table td { font-weight: 700; } /* Điện thoại nhỏ càng cần chữ đậm hơn */
     .table-pair { gap: 5px; }
     .country-title { font-size: 1.3rem; letter-spacing: 3px; }
 }
@@ -173,7 +174,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    .divider { display: none; } /* Ẩn vạch vàng trên mobile để gọn trang */
+    .divider { display: none; } 
     .section-title { font-size: 1.6rem; }
 }
 
