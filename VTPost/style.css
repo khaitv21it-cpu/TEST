@@ -8,7 +8,7 @@ body {
     color: #333; 
     background-color: #fff;
     width: 100%; 
-    overflow-x: hidden;
+    overflow-x: hidden; /* Chống tràn ngang toàn trang */
 }
 
 /* =========================================
@@ -36,14 +36,17 @@ body {
 
 .contact-grid { 
     display: grid; 
+    /* Tự động chuyển 1 cột trên mobile, 2 cột trên máy tính */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; 
     max-width: 900px; 
     margin: 0 auto; 
+    padding: 0 20px;
 }
 
-.contact-item { padding: 0 20px; }
+.contact-item { padding: 0 10px; }
 
+/* FIX: Căn giữa khối Mr. Linh */
 .centered { 
     grid-column: 1 / -1; 
     margin-top: 20px; 
@@ -56,7 +59,7 @@ body {
 .staff-box-inner {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start; /* Giữ dấu nháy bên trái nội dung */
     width: fit-content;      
 }
 
@@ -76,15 +79,16 @@ body {
 .contact-item p { font-size: 1.1rem; margin-bottom: 5px; }
 .staff-name { font-weight: bold; margin-top: 5px; }
 
+/* Thanh đỏ tràn viền */
 .decoration-red-bar { 
-    width: 100vw; 
+    width: 100%; 
     height: 45px; 
     background: #ff4d4d; 
-    margin: 60px calc(-50vw + 50%);
+    margin: 60px 0;
 }
 
 /* =========================================
-   4. PRICING TABLES - FIX HIỂN THỊ BẢNG
+   4. PRICING TABLES - TỐI ƯU HIỂN THỊ MOBILE
    ========================================= */
 .pricing-container { 
     padding: 30px 0; 
@@ -95,20 +99,22 @@ body {
     width: 100%;
     max-width: 1000px; 
     margin: 0 auto;
-    padding: 0 15px; 
-    overflow-x: auto;                  /* BẮT BUỘC: Scroll ngang để bảng hiện */
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
+    padding: 0 10px; /* Tạo khoảng cách nhỏ với mép màn hình */
 }
 
 .pricing-row { 
     display: flex; 
-    justify-content: flex-start;       /* FIX: Từ center -> flex-start để scroll hoạt động */
+    justify-content: center; /* Căn giữa các khối quốc gia */
     align-items: flex-start; 
     gap: 30px; 
     margin-bottom: 40px;
-    flex-wrap: wrap; 
-    min-width: fit-content;            /* FIX: Giữ nội dung đầy đủ, kích hoạt scroll */
+    flex-wrap: wrap; /* Rất quan trọng: Để các nước tự xuống hàng trên điện thoại */
+}
+
+.country-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .country-title { 
@@ -125,24 +131,17 @@ body {
     display: flex; 
     gap: 10px; 
     justify-content: center;
-    flex-wrap: nowrap; 
-    min-width: 370px;                  /* FIX: Đảm bảo pair không bị co mất */
+    flex-wrap: nowrap; /* Giữ 2 bảng con (trái-phải) nằm ngang */
 }
 
 .data-table { 
     border-collapse: collapse; 
-    width: 180px; 
-    min-width: 170px;
+    width: 180px; /* Độ rộng tối ưu để hiện 2 bảng song song trên iPhone */
     font-size: 10px;
 }
 
-@media (max-width: 380px) {
-    .data-table { width: 155px; font-size: 9px; }
-    .table-pair { gap: 5px; min-width: 330px; }
-}
-
 .data-table th, .data-table td { 
-    border: 0.5px solid #ccc; 
+    border: 1px solid #ccc; /* Tăng lên 1px để viền hiện rõ trên mobile */
     padding: 7px 4px; 
     text-align: center; 
 }
@@ -158,6 +157,13 @@ body {
     font-weight: 600; 
 }
 
+/* Media Query cho điện thoại nhỏ (iPhone SE/5/6) */
+@media screen and (max-width: 400px) {
+    .data-table { width: 45vw; font-size: 9px; } /* Co giãn bảng theo màn hình */
+    .table-pair { gap: 5px; }
+    .country-title { font-size: 1.3rem; letter-spacing: 3px; }
+}
+
 /* Divider vạch vàng */
 .divider { 
     display: flex; 
@@ -166,8 +172,9 @@ body {
     padding-top: 100px; 
 }
 
-@media (max-width: 768px) {
-    .divider { display: none; }
+@media screen and (max-width: 768px) {
+    .divider { display: none; } /* Ẩn vạch vàng trên mobile để gọn trang */
+    .section-title { font-size: 1.6rem; }
 }
 
 .v-line { 
