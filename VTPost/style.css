@@ -12,13 +12,13 @@ body {
 }
 
 /* =========================================
-   2. HERO POSTER (PHẦN ĐẦU TRANG)
+   2. HERO POSTER
    ========================================= */
 .hero-poster { width: 100%; line-height: 0; }
 .full-poster { width: 100%; height: auto; display: block; }
 
 /* =========================================
-   3. CONTACT SECTION (PHẦN LIÊN HỆ)
+   3. CONTACT SECTION
    ========================================= */
 .contact-section { 
     padding: 60px 0; 
@@ -84,7 +84,7 @@ body {
 }
 
 /* =========================================
-   4. PRICING TABLES (BẢNG GIÁ)
+   4. PRICING TABLES - FIX HIỂN THỊ BẢNG
    ========================================= */
 .pricing-container { 
     padding: 30px 0; 
@@ -96,19 +96,19 @@ body {
     max-width: 1000px; 
     margin: 0 auto;
     padding: 0 15px; 
-    overflow-x: auto;                  /* FIX: Tạo scroll ngang khi bảng rộng hơn màn hình */
-    -webkit-overflow-scrolling: touch; /* Scroll mượt trên iPhone */
-    scrollbar-width: thin;             /* Thanh scroll mỏng trên Firefox */
+    overflow-x: auto;                  /* BẮT BUỘC: Scroll ngang để bảng hiện */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
 }
 
 .pricing-row { 
     display: flex; 
-    justify-content: center; 
+    justify-content: flex-start;       /* FIX: Từ center -> flex-start để scroll hoạt động */
     align-items: flex-start; 
     gap: 30px; 
     margin-bottom: 40px;
     flex-wrap: wrap; 
-    min-width: fit-content;            /* FIX: Giữ nội dung đầy đủ, không bị co ép */
+    min-width: fit-content;            /* FIX: Giữ nội dung đầy đủ, kích hoạt scroll */
 }
 
 .country-title { 
@@ -126,19 +126,18 @@ body {
     gap: 10px; 
     justify-content: center;
     flex-wrap: nowrap; 
-    min-width: 370px;                  /* FIX: Đảm bảo pair không co quá nhỏ, kích hoạt scroll nếu cần */
+    min-width: 370px;                  /* FIX: Đảm bảo pair không bị co mất */
 }
 
 .data-table { 
     border-collapse: collapse; 
     width: 180px; 
-    min-width: 170px;                  /* FIX: Không để bảng co lại mất chữ/border */
-    font-size: 11px;                   /* Tăng nhẹ để đọc tốt hơn trên mobile khi zoom */
+    min-width: 170px;
+    font-size: 10px;
 }
 
-/* Responsive cho màn hình cực nhỏ (iPhone cũ) */
 @media (max-width: 380px) {
-    .data-table { width: 155px; font-size: 10px; }
+    .data-table { width: 155px; font-size: 9px; }
     .table-pair { gap: 5px; min-width: 330px; }
 }
 
@@ -167,7 +166,6 @@ body {
     padding-top: 100px; 
 }
 
-/* Ẩn thanh ngăn cách vàng trên điện thoại */
 @media (max-width: 768px) {
     .divider { display: none; }
 }
